@@ -15,17 +15,13 @@
             <!-- Панель навигации -->
             <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 <!-- меню сайта -->
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">20321-1 Соколинский</a>
+                <a class="navbar-brand" asp-action="Index" asp-controller="Home">WebLabsV06</a>
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" asp-controller="Home" asp-action="Index">Лб 2</a>
-                    <a class="nav-item nav-link" asp-controller="Product" asp-action="Index">Каталог</a>
-                    <a class="nav-item nav-link" asp-area="Admin" asp-page="/Index">Администрирование</a>
+                    @await Component.InvokeAsync("Menu")
                 </div>
                 <!-- меню сайта - конец -->
                 <!-- Информация пользователя -->
-                <a asp-controller="Cart" asp-action="Index" class="navbar-text ms-auto">
-                    00,0 руб <i class="fas fa-shopping-cart nav-color"></i> (0)
-                </a>
+                @await Component.InvokeAsync("Cart")
                 <div class="dropdown ml-4 nav-color">
                     <button class="dropdown-toggle btn btn-outline-dark nav-color" id="dropdownMenuButton"
                             data-bs-toggle="dropdown"
