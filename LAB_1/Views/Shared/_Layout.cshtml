@@ -21,25 +21,9 @@
                 </div>
                 <!-- меню сайта - конец -->
                 <!-- Информация пользователя -->
-                @await Component.InvokeAsync("Cart")
-                <div class="dropdown ml-4 nav-color">
-                    <button class="dropdown-toggle btn btn-outline-dark nav-color" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                        <img src="images/free-icon-user-149071.png" width="30"
-                             alt="User" class="rounded" />
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="dropdownMenuButton">
-                        <li class="dropdown-item-text">
-                            <img src="images/free-icon-user-149071.png" width="50" alt="User" class="rounded" />
-                            alex@mail.ru
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <a class="dropdown-item" asp-controller="Cart" asp-action="Index">Мои товары</a>
-                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Log off</a>
-                    </ul>
-                </div>
+                @{
+                    await Html.RenderPartialAsync("_LoginPartial");
+                }               
                 <!-- Информация пользователя - конец -->
             </nav> <!-- Панель навигации - конец -->
         </div>
