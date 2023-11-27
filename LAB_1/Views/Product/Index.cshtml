@@ -19,8 +19,8 @@
                     <p class="card-text">
                         @item.Description
                     </p>
-                    <div class="card-text badge badge-secondary">
-                        <h6>@item.Count</h6>
+                    <div class="card-text">
+                        <h6>Количество: @item.Count.ToString()</h6>
                     </div> @{
                         // Получение текущего адреса
                         var request = ViewContext.HttpContext.Request;
