@@ -96,6 +96,8 @@ namespace WEB.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public IFormFile Avatar { get; set; }
         }
 
 
@@ -112,6 +114,17 @@ namespace WEB.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+
+                if (Input.Avatar != null)
+                {
+                    user.AvatarImage = new byte[(int)Input.Avatar.Length];
+                    await Input.Avatar
+                    .OpenReadStream()
+                    .ReadAsync(
+                    user.AvatarImage,
+                    0,
+                    (int)Input.Avatar.Length);
+                }
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
