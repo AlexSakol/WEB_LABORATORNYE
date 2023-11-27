@@ -13,8 +13,9 @@ namespace WEB.Data
             using var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             using var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
+            await context.Database.EnsureDeletedAsync();
             // создать БД, если она еще не создана
-            context.Database.EnsureCreated();
+            await context.Database.EnsureCreatedAsync();
             // проверка наличия ролей
             if (!context.Roles.Any())
             {
