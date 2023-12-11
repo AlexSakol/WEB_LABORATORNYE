@@ -8,12 +8,17 @@ namespace WEB.Controllers
         private List<Good> goods;
         private List<Section> sections;
 
-        public ProductController()
-        {
-            SetupData();
-        }
+        private int _pageSize = 3;        
 
-        public IActionResult Index() => View(goods);
+        public ProductController() => SetupData();
+
+        public IActionResult Index(int pageNo = 1) 
+        {
+            var items = goods.Skip((pageNo - 1) * _pageSize)
+                        .Take(_pageSize)
+                        .ToList();
+            return View(items);
+        }
 
         private void SetupData()
         {
