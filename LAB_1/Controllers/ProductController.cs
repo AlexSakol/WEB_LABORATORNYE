@@ -12,8 +12,16 @@ namespace WEB.Controllers
 
         public ProductController() => SetupData();
 
-        public IActionResult Index(int pageNo = 1) => View(ListViewModel<Good>
-            .GetModel(goods, pageNo, _pageSize));  
+        public IActionResult Index(int? section, int pageNo = 1)
+        {
+            var goodsFiltered = goods.Where(g => !section.HasValue || g.SectionId == section.Value);
+            // Поместить список групп во ViewData
+            ViewData["Groups"] = sections;
+            // Получить id текущей группы и поместить в TempData
+            ViewData["CurrentGroup"] = section ?? 0;
+            return View(ListViewModel<Good>
+            .GetModel(goodsFiltered, pageNo, _pageSize));
+        }  
 
         private void SetupData()
         {
