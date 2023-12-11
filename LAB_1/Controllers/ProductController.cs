@@ -12,13 +12,8 @@ namespace WEB.Controllers
 
         public ProductController() => SetupData();
 
-        public IActionResult Index(int pageNo = 1) 
-        {
-            var items = goods.Skip((pageNo - 1) * _pageSize)
-                        .Take(_pageSize)
-                        .ToList();
-            return View(items);
-        }
+        public IActionResult Index(int pageNo = 1) => View(ListViewModel<Good>
+            .GetModel(goods, pageNo, _pageSize));  
 
         private void SetupData()
         {
