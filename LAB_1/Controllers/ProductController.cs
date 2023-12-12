@@ -12,6 +12,8 @@ namespace WEB.Controllers
 
         public ProductController() => SetupData();
 
+        [Route("Catalog")]
+        [Route("Catalog/Page_{pageNo}")]
         public IActionResult Index(int? section, int pageNo = 1)
         {
             var goodsFiltered = goods.Where(g => !section.HasValue || g.SectionId == section.Value);
