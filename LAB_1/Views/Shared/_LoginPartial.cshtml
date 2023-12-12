@@ -9,15 +9,18 @@
         <button class="dropdown-toggle btn btn-outline-dark nav-color" id="dropdownMenuButton"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-            <img src="@Url.Action("GetAvatar","Image")"
+            <img img-action="GetAvatar"
+                 img-controller="Image"
                  width="30" alt="User"
                  class="rounded bg-light" />
         </button>
         <ul class="dropdown-menu dropdown-menu-end"
             aria-labelledby="dropdownMenuButton">
             <li class="dropdown-item-text">
-                <img src="@Url.Action("GetAvatar","Image")"
-                     width="50" alt="User" class="rounded" />
+                <img img-action="GetAvatar"
+                     img-controller="Image"
+                     width="30" alt="User"
+                     class="rounded bg-light" />
                 @User.Identity.Name                
             </li>
             <li class="dropdown-divider"></li>
