@@ -41,5 +41,8 @@
                 <partial name="_ListItemPartial" model="@item" />
             }
         </div>
+        <pager page-current="@Model.CurrentPage" page-total="@Model.TotalPages"
+               action="Index"
+               controller="Product" group-id="@currentGroup"></pager>
     </div>
 </div>
