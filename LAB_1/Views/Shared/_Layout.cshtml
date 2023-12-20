@@ -20,10 +20,8 @@
                     @await Component.InvokeAsync("Menu")
                 </div>
                 <!-- меню сайта - конец -->
-                <!-- Информация пользователя -->
-                @{
-                    await Html.RenderPartialAsync("_LoginPartial");
-                }               
+                <!-- Информация пользователя -->                
+                <partial name="_LoginPartial" />
                 <!-- Информация пользователя - конец -->
             </nav> <!-- Панель навигации - конец -->
         </div>

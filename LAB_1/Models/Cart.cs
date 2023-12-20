@@ -31,7 +31,7 @@
         /// Добавление в корзину
         /// </summary>
         /// <param name="good">добавляемый объект</param>
-        public void AddToCart(Good good)
+        public virtual void AddToCart(Good good)
         {
             // если объект есть в корзине
             // то увеличить количество
@@ -49,14 +49,14 @@
         /// Удалить объект из корзины
         /// </summary>
         /// <param name="id">id удаляемого объекта</param>
-        public void RemoveFromCart(int id)
+        public virtual void RemoveFromCart(int id)
         {
             Items.Remove(id);
         }
         /// <summary>
         /// Очистить корзину
         /// </summary>
-        public void ClearAll()
+        public virtual void ClearAll()
         {
             Items.Clear();
         }

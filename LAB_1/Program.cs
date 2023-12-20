@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WEB.Data;
 using WEB.Models;
+using WEB.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,10 @@ builder.Services.AddSession(opt =>
 });
 
 builder.Services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+builder.Services.AddScoped<Cart>(sp => CartService.GetCart(sp));
 
 var app = builder.Build();
 
