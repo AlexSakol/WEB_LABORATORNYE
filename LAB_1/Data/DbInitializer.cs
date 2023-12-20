@@ -49,6 +49,25 @@ namespace WEB.Data
                 await userManager.AddToRoleAsync(admin, "admin");
             }
 
+            if (!context.Sections.Any())
+            {
+                await context.Sections.AddRangeAsync(
+                    new Section { Name = "Одежда" },
+                    new Section { Name = "Мебель" },
+                    new Section { Name = "Компьютеры" });
+                await context.SaveChangesAsync();
+            }
+
+            if (!context.Goods.Any())
+            {
+                await context.Goods.AddRangeAsync(
+                    new Good { Name = "Рубашка", Description = "Белая", Count = 5, SectionId = 1, Image = "Shirt.jpg" },
+                    new Good { Name = "Кофта", Description = "Шерстяная", Count = 7, SectionId = 1, Image = "Jacket.jpg" },
+                    new Good { Name = "Монитор", Description = "ЖК, 12 дюймов", Count = 2, SectionId = 3, Image = "Screen.jpg" },
+                    new Good { Name = "Стул", Description = "Деревянный, жесткий", Count = 4, SectionId = 2, Image = "Chair.jpg" },
+                    new Good { Name = "Кресло", Description = "Мягкое, кожаное", Count = 8, SectionId = 2, Image = "Armchair.jpg" });
+                await context.SaveChangesAsync();
+            }            
 
         }
     }
