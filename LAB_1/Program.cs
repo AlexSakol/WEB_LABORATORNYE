@@ -1,5 +1,6 @@
 using LAB_1.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WEB.Data;
 using WEB.Models;
@@ -33,6 +34,15 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(opt =>
+{
+    opt.Cookie.HttpOnly = true;
+    opt.Cookie.IsEssential = true;
+});
+
+builder.Services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -54,6 +64,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
