@@ -14,14 +14,18 @@ namespace WEB.Areas.Admin.Pages
     public class EditModel : PageModel
     {
         private readonly LAB_1.Data.ApplicationDbContext _context;
+        private IWebHostEnvironment _environment;
 
-        public EditModel(LAB_1.Data.ApplicationDbContext context)
+        public EditModel(LAB_1.Data.ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _environment = env;
         }
 
         [BindProperty]
         public Good Good { get; set; } = default!;
+        [BindProperty]
+        public IFormFile Image { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,7 +40,7 @@ namespace WEB.Areas.Admin.Pages
                 return NotFound();
             }
             Good = good;
-           ViewData["SectionId"] = new SelectList(_context.Sections, "Id", "Id");
+           ViewData["SectionId"] = new SelectList(_context.Sections, "Id", "Name");
             return Page();
         }
 
@@ -44,12 +48,17 @@ namespace WEB.Areas.Admin.Pages
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (Image != null)
             {
-                return Page();
+                var fileName = $"{Good.Id}" + Path.GetExtension(Image.FileName);
+                Good.Image = fileName;
+                var path = Path.Combine(_environment.WebRootPath, "Images", fileName);
+                using (var fStream = new FileStream(path, FileMode.Create))
+                {
+                    await Image.CopyToAsync(fStream);
+                }
             }
-
-            _context.Attach(Good).State = EntityState.Modified;
+            _context.Attach(Good).State = EntityState.Modified;            
 
             try
             {
@@ -67,6 +76,10 @@ namespace WEB.Areas.Admin.Pages
                 }
             }
 
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             return RedirectToPage("./Index");
         }
 
