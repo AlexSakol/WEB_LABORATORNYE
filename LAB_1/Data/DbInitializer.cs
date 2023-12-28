@@ -1,4 +1,4 @@
-﻿using LAB_1.Data;
+﻿using WEB.Data;
 using Microsoft.AspNetCore.Identity;
 using WEB.Models;
 

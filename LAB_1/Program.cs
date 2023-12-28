@@ -1,9 +1,10 @@
-using LAB_1.Data;
+using WEB.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WEB.Data;
+using WEB.Extensions;
 using WEB.Models;
 using WEB.Services;
 
@@ -80,6 +81,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+app.UseFileLogging();
 
 await DbInitializer.Seed(app);
 

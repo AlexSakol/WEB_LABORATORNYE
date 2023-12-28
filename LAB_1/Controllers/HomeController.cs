@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace LAB_1.Controllers
+namespace WEB.Controllers
 {
     public class HomeController : Controller
     {

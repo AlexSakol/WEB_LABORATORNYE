@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using LAB_1.Data;
+using WEB.Data;
 using WEB.Models;
 
 namespace WEB.Areas.Admin.Pages
 {
     public class DeleteModel : PageModel
     {
-        private readonly LAB_1.Data.ApplicationDbContext _context;
+        private readonly WEB.Data.ApplicationDbContext _context;
 
-        public DeleteModel(LAB_1.Data.ApplicationDbContext context)
+        public DeleteModel(WEB.Data.ApplicationDbContext context)
         {
             _context = context;
         }

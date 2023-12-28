@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using WEB.Models;
 
-namespace LAB_1.Data
+namespace WEB.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

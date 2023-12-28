@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace LAB_1.Data.Migrations
+namespace WEB.Data.Migrations
 {
     public partial class EntitiesAdded : Migration
     {

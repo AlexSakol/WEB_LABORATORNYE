@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using LAB_1.Data;
+using WEB.Data;
 using WEB.Models;
 
 namespace WEB.Areas.Admin.Pages
 {
     public class CreateModel : PageModel
     {
-        private readonly LAB_1.Data.ApplicationDbContext _context;
+        private readonly WEB.Data.ApplicationDbContext _context;
         private readonly IWebHostEnvironment _environment;
 
-        public CreateModel(LAB_1.Data.ApplicationDbContext context, IWebHostEnvironment env)
+        public CreateModel(WEB.Data.ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _environment = env;

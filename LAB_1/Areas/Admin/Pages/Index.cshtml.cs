@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using LAB_1.Data;
+using WEB.Data;
 using WEB.Models;
 
 namespace WEB.Areas.Admin.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly LAB_1.Data.ApplicationDbContext _context;
+        private readonly WEB.Data.ApplicationDbContext _context;
 
-        public IndexModel(LAB_1.Data.ApplicationDbContext context)
+        public IndexModel(WEB.Data.ApplicationDbContext context)
         {
             _context = context;
         }

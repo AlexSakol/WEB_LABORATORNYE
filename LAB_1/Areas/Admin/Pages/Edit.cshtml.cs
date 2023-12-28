@@ -6,17 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using LAB_1.Data;
+using WEB.Data;
 using WEB.Models;
 
 namespace WEB.Areas.Admin.Pages
 {
     public class EditModel : PageModel
     {
-        private readonly LAB_1.Data.ApplicationDbContext _context;
+        private readonly WEB.Data.ApplicationDbContext _context;
         private IWebHostEnvironment _environment;
 
-        public EditModel(LAB_1.Data.ApplicationDbContext context, IWebHostEnvironment env)
+        public EditModel(WEB.Data.ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _environment = env;
