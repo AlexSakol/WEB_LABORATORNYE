@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WEB.Models;
 using WEB.Data;
-using WEB.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog.Data;
 

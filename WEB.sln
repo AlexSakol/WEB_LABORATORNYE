@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEB", "LAB_1\WEB.csproj", "{19094CB4-E27E-45D7-B8C8-FCE829605B7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB.Blazor", "WEB.Blazor\WEB.Blazor.csproj", "{400BDDE0-5334-4545-AA3A-A2A4AFC2BABB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{19094CB4-E27E-45D7-B8C8-FCE829605B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19094CB4-E27E-45D7-B8C8-FCE829605B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19094CB4-E27E-45D7-B8C8-FCE829605B7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400BDDE0-5334-4545-AA3A-A2A4AFC2BABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400BDDE0-5334-4545-AA3A-A2A4AFC2BABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400BDDE0-5334-4545-AA3A-A2A4AFC2BABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400BDDE0-5334-4545-AA3A-A2A4AFC2BABB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
-﻿using WEB.Data;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using WEB.Models;
 
 namespace WEB.Data
