@@ -3,16 +3,23 @@ using WEB.Models;
 using WEB.Data;
 using LAB_1.Data;
 using Microsoft.EntityFrameworkCore;
+using Serilog.Data;
 
 namespace WEB.Controllers
 {
     public class ProductController : Controller
     {
         ApplicationDbContext context;
+        //ILogger<ProductController> _logger;
 
-        private int _pageSize = 3;
+        private int _pageSize;
 
-        public ProductController(ApplicationDbContext dbContext) => context = dbContext; 
+        public ProductController(ApplicationDbContext dbContext/*, ILogger<ProductController> logger*/)
+        {
+            context = dbContext;
+            _pageSize = 3;
+            //_logger = logger;
+        }
 
         [Route("Catalog")]
         [Route("Catalog/Page_{pageNo}")]
@@ -23,6 +30,7 @@ namespace WEB.Controllers
             ViewData["Groups"] = await context.Sections.ToListAsync();
             // Получить id текущей группы и поместить в TempData
             ViewData["CurrentGroup"] = section ?? 0;
+            //_logger.LogInformation($"info: section={section}, page={pageNo}");
             return View(ListViewModel<Good>
             .GetModel(goodsFiltered, pageNo, _pageSize));
         }  
